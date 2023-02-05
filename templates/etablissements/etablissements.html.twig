@@ -1,0 +1,43 @@
+{% extends 'base.html.twig'  %}
+
+{% block title %}Hello{% endblock %}
+
+{% block body %}
+
+<!-- Les 7 Hôtels Hypnos -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Hôtels Hypnos</h1>
+                <p class="lead">Retrouvez ici l'ensemble de nos établissements en France</p>
+            </div>
+
+            {% for etablissement in etablissements  %}
+
+            <div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{  etablissement.nom }}</h4>
+      </div>
+      <div class="card-body">
+        <img src="https://via.placeholder.com/150x150" class="img-fluid rounded mx-auto d-block" alt="Hôtel du Château">
+        <p>{{etablissement.description}}</p>
+        <p>{{etablissement.town}}</p>
+        <p>{{etablissement.adress}}</p>
+        <p>
+        
+        
+        <button type="button" class="btn btn-lg btn-block btn-primary">Réservez</button>
+      </div>
+    </div>
+    
+    
+</section>
+
+
+
+    <p>{{ etablissement.town }}</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos suites de luxe{% endblock %}
+
+{% block body %}
+
+<h1>Ici, découvrez nos suites de luxe</h1>
+
+{% for suite in suites %}
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{ suite.nom }}</h4>
+      </div>
+      <div class="card-body">
+        <p>{{ suite.description }}</p>
+        <p>{{ suite.prix }}</p>
+        <p>{{ suite.disponi }}</p>
+        <button type="button" class="btn btn-lg btn-block btn-primary">Réservez</button>
+      </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
