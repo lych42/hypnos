@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\User;
 use App\Entity\Etablissement;
+use App\Entity\Suite;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -35,8 +36,6 @@ class AppFixtures extends Fixture
 
         $manager->persist($user);
 
-        $manager->flush();
-
         // Création de 7 Etablissements
         for($i=0; $i<7; $i++) {
             $etablissement = new Etablissement();
@@ -45,8 +44,22 @@ class AppFixtures extends Fixture
                           ->setTown($faker->city())
                           ->setAdress($faker->address())
                           ->setDescription('test description');
-            $manager-> persist($etablissement);
+
+        $manager->persist($etablissement);
         }
 
+        // Création de Suites de Luxe
+        for($j=0; $j<21; $j++) {
+            $suite = new Suite();
+
+            $suite->setNom($faker->name())
+                  ->setPrix($faker->randomFloat(null, 2, 100))
+                  ->setDescription('test description')
+                  ->setDisponi($faker->boolean());
+
+        $manager-> persist($suite);
+        }
+
+        $manager->flush();
     }
 }
