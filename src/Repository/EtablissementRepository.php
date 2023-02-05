@@ -21,6 +21,19 @@ class EtablissementRepository extends ServiceEntityRepository
         parent::__construct($registry, Etablissement::class);
     }
 
+    /**
+    * @return Etablissement[]
+     */
+    public function lastThree()
+    {
+        return $this->createQueryBuilder('b')
+            ->orderBy('b.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     public function save(Etablissement $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);

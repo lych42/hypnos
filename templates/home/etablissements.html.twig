@@ -1,1 +1,19 @@
-cccccccccccccccccccc
+<!-- Les 7 Hotels Hypnos -->
+
+<div class="row">
+  <h2>Hôtels Hypnos</h2>
+  <p>Retrouvez ici l'ensemble de nos établissements en France</p>
+</div>
+
+{% for etablissement in etablissements %}
+<div class="row">
+
+  <div style="width: 14.28%; padding: 1em;">
+    <h3>
+    {{ etablissement.nom }}
+    </h3>
+  </div>
+
+  
+
+{% endfor %}
