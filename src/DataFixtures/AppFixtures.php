@@ -61,5 +61,17 @@ class AppFixtures extends Fixture
         }
 
         $manager->flush();
+
+        // Création d'un Gérant
+        $gérant = new Gérant();
+
+        $gérant->setEmail('gérant@test.com')
+             ->setPrenom($faker->firstName())
+             ->setNom($faker->lastName());
+
+        $password = $this->hasher->hashPassword($gérant, 'password');
+        $gérant->setPassword($password);
+
+        $manager->persist($gérant);
     }
 }
