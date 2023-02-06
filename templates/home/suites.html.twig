@@ -1,16 +1,25 @@
-<!-- Suites de Luxe -->
+<h3>Quelques suites...</h3>
 
-<div style="display: flex;">
-  <div style="width: 33.33%; padding: 1em;">
-    <h3>Suite Prestige</h3>
-    <p>Cette suite de luxe comprend une chambre spacieuse avec un lit king-size, un salon séparé avec un canapé confortable, une salle de bains privée avec baignoire spa et une vue imprenable sur la ville.</p>
+{% for suite in suites %}
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <img src="suite1.jpg" class="card-img-top" alt="Suite 1">
+      <div class="card-body">
+        <h5 class="card-title">{ suite.nom }</h5>
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut eros sed magna gravida volutpat.</p>
+      </div>
+    </div>
   </div>
-  <div style="width: 33.33%; padding: 1em;">
-    <h3>Suite Royale</h3>
-    <p>Cette suite de luxe comprend une chambre spacieuse avec un lit king-size, un salon séparé avec un canapé confortable, une salle de bains privée avec douche à effet pluie, un sauna et une vue imprenable sur la mer.</p>
-  </div>
-  <div style="width: 33.33%; padding: 1em;">
-    <h3>Suite Élégante</h3>
-    <p>Cette suite de luxe comprend une chambre spacieuse avec un lit king-size, un salon séparé avec un canapé confortable, une salle de bains privée avec baignoire jacuzzi, un coin salon avec une cheminée et une vue imprenable sur les montagnes.</p>
+  <div class="col-sm-6">
+    <div class="card">
+      <img src="suite2.jpg" class="card-img-top" alt="Suite 2">
+      <div class="card-body">
+        <h5 class="card-title">{suite.nom}</h5>
+        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut eros sed magna gravida volutpat.</p>
+      </div>
+    </div>
   </div>
 </div>
+{% endfor %}

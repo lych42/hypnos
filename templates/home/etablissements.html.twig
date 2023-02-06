@@ -1,19 +1,19 @@
-<!-- Les 7 Hotels Hypnos -->
-
-<div class="row">
-  <h2>Hôtels Hypnos</h2>
-  <p></p>
-</div>
+<h3 style="text-align: center">Quelques hôtels...</h3>
 
 {% for etablissement in etablissements %}
-<div class="row">
 
-  <div style="width: 14.28%; padding: 1em;">
-    <h3>
-    {{ etablissement.town }}
-    </h3>
-  </div>
-
-  
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{ etablissement.nom }}</h4>
+      </div>
+      <div class="card-body">
+        <p></p>
+        <p></p>
+        <p></p>
+        <button type="button" class="btn btn-lg btn-block btn-primary">Réservez</button>
+      </div>
+    </div>
 
 {% endfor %}
