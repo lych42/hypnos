@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use App\Entity\Gerant;
 use App\Entity\Etablissement;
 use App\Entity\Suite;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -31,13 +32,13 @@ class AppFixtures extends Fixture
              ->setPrenom($faker->firstName())
              ->setNom($faker->lastName());
 
-        $password = $this->hasher->hashPassword($user, 'pass_1234');
+        $password = $this->hasher->hashPassword($user, 'password');
         $user->setPassword($password);
 
         $manager->persist($user);
 
         // Création de 7 Etablissements
-        for($i=0; $i<7; $i++) {
+        for ($i=0; $i<7; $i++) {
             $etablissement = new Etablissement();
 
             $etablissement->setNom($faker->name())
@@ -45,11 +46,11 @@ class AppFixtures extends Fixture
                           ->setAdress($faker->address())
                           ->setDescription('test description');
 
-        $manager->persist($etablissement);
+            $manager->persist($etablissement);
         }
 
         // Création de Suites de Luxe
-        for($j=0; $j<21; $j++) {
+        for ($j=0; $j<21; $j++) {
             $suite = new Suite();
 
             $suite->setNom($faker->name())
@@ -57,21 +58,23 @@ class AppFixtures extends Fixture
                   ->setDescription('test description')
                   ->setDisponi($faker->boolean());
 
-        $manager-> persist($suite);
+            $manager-> persist($suite);
+        }
+
+        // Création de Gérants
+        for ($k=0; $k < 7; $k++) {
+            $gerant = new Gerant();
+
+            $gerant->setNom($faker->lastName())
+                   ->setPrenom($faker->firstName())
+                   ->setEmail($faker->email())
+                   ->setRole([])
+                   ->setPassword($faker->password());
+
+            $manager->persist($gerant);
         }
 
         $manager->flush();
 
-        // Création d'un Gérant
-        $gérant = new Gérant();
-
-        $gérant->setEmail('gérant@test.com')
-             ->setPrenom($faker->firstName())
-             ->setNom($faker->lastName());
-
-        $password = $this->hasher->hashPassword($gérant, 'password');
-        $gérant->setPassword($password);
-
-        $manager->persist($gérant);
     }
 }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig'  %}
 
-{% block title %}Hello{% endblock %}
+{% block title %}Hôtels Hypnos{% endblock %}
 
 {% block body %}
 
@@ -26,18 +26,10 @@
         <p>{{etablissement.description}}</p>
         <p>{{etablissement.town}}</p>
         <p>{{etablissement.adress}}</p>
-        <p>
-        
-        
-        <button type="button" class="btn btn-lg btn-block btn-primary">Réservez</button>
+        <a href="#"><p>Page de l'Hôtel</p></a>
+        <button type="button" class="btn btn-lg btn-outline-secondary btn-block"><a href="#">Réservez</a></button>
       </div>
-    </div>
-    
-    
+    </div> 
 </section>
-
-
-
-    <p>{{ etablissement.town }}</p>
 {% endfor %}
 {% endblock %}

@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Gérant;
+use App\Entity\Gerant;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Gérant>
+ * @extends ServiceEntityRepository<Gerant>
  *
- * @method Gérant|null find($id, $lockMode = null, $lockVersion = null)
- * @method Gérant|null findOneBy(array $criteria, array $orderBy = null)
- * @method Gérant[]    findAll()
- * @method Gérant[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Gerant|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Gerant|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Gerant[]    findAll()
+ * @method Gerant[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class GérantRepository extends ServiceEntityRepository
+class GerantRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Gérant::class);
+        parent::__construct($registry, Gerant::class);
     }
 
-    public function save(Gérant $entity, bool $flush = false): void
+    public function save(Gerant $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class GérantRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Gérant $entity, bool $flush = false): void
+    public function remove(Gerant $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class GérantRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Gérant[] Returns an array of Gérant objects
+//     * @return Gerant[] Returns an array of Gerant objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class GérantRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Gérant
+//    public function findOneBySomeField($value): ?Gerant
 //    {
 //        return $this->createQueryBuilder('g')
 //            ->andWhere('g.exampleField = :val')
