@@ -41,7 +41,7 @@ class AppFixtures extends Fixture
         for ($i=0; $i<7; $i++) {
             $etablissement = new Etablissement();
 
-            $etablissement->setNom($faker->name())
+            $etablissement->setNom($faker->colorName())
                           ->setTown($faker->city())
                           ->setAdress($faker->address())
                           ->setDescription('test description');
@@ -53,7 +53,7 @@ class AppFixtures extends Fixture
         for ($j=0; $j<21; $j++) {
             $suite = new Suite();
 
-            $suite->setNom($faker->name())
+            $suite->setNom($faker->colorName())
                   ->setPrix($faker->randomFloat(null, 2, 100))
                   ->setDescription('test description')
                   ->setDisponi($faker->boolean());

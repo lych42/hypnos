@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<h1>Ici, découvrez nos suites de luxe</h1>
+<h1 class="text-center">Ici, découvrez nos suites de luxe</h1>
 
 {% for suite in suites %}
 <div class="container">
@@ -14,6 +14,7 @@
         <h4 class="my-0 font-weight-normal">{{ suite.nom }}</h4>
       </div>
       <div class="card-body">
+      <img src="img/suite2.jpg" class="card-img-top" alt="Suite 2">
         <p>{{ suite.description }}</p>
         <p>{{ suite.prix }}</p>
         <p>{{ suite.disponi }}</p>

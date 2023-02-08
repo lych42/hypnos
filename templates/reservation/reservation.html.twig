@@ -1,0 +1,25 @@
+{% extends 'base.html.twig'  %}
+
+{% block title %}Hôtels Hypnos{% endblock %}
+
+{% block body %}
+
+<div class="reservaation-form">
+  <form>
+    <label>Etablissement :</label>
+    <input type="text" name="establishment" />
+    
+    <label>Suite :</label>
+    <input type="text" name="suite" />
+    
+    <label>Date de début du séjour :</label>
+    <input type="date" name="start-date" />
+    
+    <label>Date de fin de séjour :</label>
+    <input type="date" name="end-date" />
+    
+    <input type="submit" value="Reserver" />
+  </form>
+</div>
+
+{% endblock %}
