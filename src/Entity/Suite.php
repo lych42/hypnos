@@ -5,8 +5,11 @@ namespace App\Entity;
 use App\Repository\SuiteRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: SuiteRepository::class)]
+#[Vich\Uploadable]
 class Suite
 {
     #[ORM\Id]
@@ -25,6 +28,12 @@ class Suite
 
     #[ORM\Column]
     private ?bool $disponi = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $file = null;
+
+    #[Vich\UploadableField(mapping: 'suite_images', fileNameProperty: 'file')]
+    private ?File $imageFile = null;
 
     public function getId(): ?int
     {
@@ -78,4 +87,34 @@ class Suite
 
         return $this;
     }
+
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(string $file): self
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    public function setImageFile(?File $file = null)
+    {
+        $this->imageFile = $file;
+
+        if ($file) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->createdAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+
 }
