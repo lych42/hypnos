@@ -25,6 +25,8 @@ class AppFixtures extends Fixture
         // Utilisation de Faker
         $faker = Factory::create('fr_FR');
 
+        // Création d'un Admin ???
+
         // Création d'un utilisateur
         $user = new User();
 
