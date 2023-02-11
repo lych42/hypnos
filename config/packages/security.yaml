@@ -10,6 +10,12 @@ security:
                 class: App\Entity\User
                 property: email
         # used to reload user from session & other features (e.g. switch_user)
+        in_memory:
+            memory: 
+                users: 
+                    user: { password: userpass, roles: [ 'ROLE_USER' ] }
+                    gerant: { password: gerantpass, roles: [ 'ROLE_ADMIN' ] }
+                    admin: { password: adminpass, roles: [ 'ROLE_SUPER_ADMIN' ] }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -34,6 +40,11 @@ security:
     access_control:
        - { path: ^/admin, roles: ROLE_ADMIN }
        - { path: ^/profile, roles: ROLE_USER }
+    
+    role_hierarchy:
+        ROLE_USER: 'ROLE_USER'
+        ROLE_ADMIN: ['ROLE_ADMIN', 'ROLE_USER']
+        ROLE_SUPER_ADMIN: ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
 
 when@test:
     security:
