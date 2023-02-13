@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+
+{% if is_granted("ROLE_USER") %}
+
+    <h3>Bonjour {{ app.user.prenom }}! </h3>
+    <h4>Vous êtes gérante de l'établissement de {{app.user.ville }}</h4>
+    <p>Voici la liste des suites de luxe comprise dans votre établissment à {{app.user.ville }} </p>
+
+    {% include 'home/suites.html.twig' %}
+
+    {% for suite in suites %}
+
+{% endfor %}
+
+
+{% else %}
+    <h3>Aucun compte connecté, voulez vous <a href="{{ path('register')}}">créer un compte ?</a></h3>
+    <h3>Si vous avez déjà un compte, connectez vous <a href="{{ path('login') }}">ici</a></h3>
+{% endif %}
+
+{% endblock %}
