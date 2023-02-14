@@ -15,7 +15,6 @@ class HomeController extends AbstractController
     public function index(SuiteRepository $suiteRepository, EtablissementRepository $etablissementRepository): Response
     {
         return $this->render('home/index.html.twig', [
-            'suites' => $suiteRepository->lastThree(),
             'etablissements' => $etablissementRepository->lastThree(),
         ]);
     }

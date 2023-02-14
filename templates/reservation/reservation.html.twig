@@ -1,25 +1,35 @@
 {% extends 'base.html.twig'  %}
 
-{% block title %}Hôtels Hypnos{% endblock %}
+{% block title %}Réservation{% endblock %}
 
-{% block body %}
 
-<div class="reservaation-form">
-  <form>
-    <label>Etablissement :</label>
-    <input type="text" name="establishment" />
-    
-    <label>Suite :</label>
-    <input type="text" name="suite" />
-    
-    <label>Date de début du séjour :</label>
-    <input type="date" name="start-date" />
-    
-    <label>Date de fin de séjour :</label>
-    <input type="date" name="end-date" />
-    
-    <input type="submit" value="Reserver" />
-  </form>
-</div>
 
+{% block body %} 
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        let calendarEl = document.getElementById('calendar');
+
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          locale: 'fr',
+          timezone: 'Europe/Paris'
+        });
+
+        calendar.render();
+      });
+    </script>
+
+  </head>
+  <body>
+    <div id='calendar'></div>
+  </body>
+</html>
 {% endblock %}
+
+
