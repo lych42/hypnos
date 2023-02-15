@@ -22,7 +22,4 @@ class EtablissementCrudController extends AbstractCrudController
             TextareaField::new('description'),
         ];
     }
-
-    
-
 }

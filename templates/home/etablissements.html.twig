@@ -9,10 +9,12 @@
         <h4 class="my-0 font-weight-normal">{{ etablissement.nom }}</h4>
       </div>
       <div class="card-body">
-        <p></p>
-        <p></p>
-        <p></p>
-        <button type="button" class="btn btn-lg btn-block btn-primary">Réservez</button>
+        <p>{{ etablissement.town }}</p>
+        <p>{{ etablissement.adress }}</p>
+        <p>{{ etablissement.description }}</p>
+        <button type="button" class="btn btn-lg btn-block btn-light">
+        <a href="{{ path('reservation_index') }}">Réservez</a>
+        </button>
       </div>
     </div>
 
