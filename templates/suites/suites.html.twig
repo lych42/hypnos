@@ -14,7 +14,7 @@
         <h4 class="my-0 font-weight-normal">{{ suite.nom }}</h4>
       </div>
       <div class="card-body">
-      <img src="img/suite2.jpg" class="card-img-top" alt="Suite 2">
+      <img src="{{ vich_uploader_asset(suite, 'imageFile') }}" class="card-img-top" alt="Suite">
         <p>{{ suite.description }}</p>
         <p>{{ suite.prix }}</p>
         <p>{{ suite.disponi }}</p>

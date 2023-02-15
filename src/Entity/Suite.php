@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\SuiteRepository;
+use App\Repository\SuiteRepository as Repo;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
-#[ORM\Entity(repositoryClass: SuiteRepository::class)]
+
+#[ORM\Entity(repositoryClass: Repo::class)]
 #[Vich\Uploadable]
 class Suite
 {
@@ -28,6 +30,12 @@ class Suite
 
     #[ORM\Column]
     private ?bool $disponi = null;
+
+    #[ORM\Column(length: 255, type: 'string')]
+    private ?string $image = null;
+
+    #[Vich\UploadableField(mapping: 'suite_images', fileNameProperty: 'image')]
+    private ?File $imageFile = null;
 
     public function getId(): ?int
     {
@@ -86,4 +94,31 @@ class Suite
 
         return $this;
     }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function setImageFile(?File $file = null)
+    {
+        $this->imageFile = $file;
+
+        if ($file) {
+            $this->createdAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
 }
