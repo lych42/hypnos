@@ -16,20 +16,20 @@
             {% for etablissement in etablissements  %}
 
             <div class="container">
-            <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 shadow-sm">
-            <div class="card-header">
-            <h4 class="my-0 font-weight-normal">{{  etablissement.nom }}</h4>
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">{{  etablissement.nom }}</h4>
+                        </div>
+                        <div class="card-body">
+                        <p>{{etablissement.description}}</p>
+                        <p>{{etablissement.town}}</p>
+                        <p>{{etablissement.adress}}</p>
+                        <button type="button" class="btn btn-lg btn-outline-secondary btn-block"><a href="{{ path('reservation_index') }}">Réservez</a></button>
+                        </div>
+                    </div> 
+                </div>
             </div>
-            <div class="card-body">
-            <img src="https://via.placeholder.com/150x150" class="img-fluid rounded mx-auto d-block" alt="Hôtel du Château">
-            <p>{{etablissement.description}}</p>
-            <p>{{etablissement.town}}</p>
-            <p>{{etablissement.adress}}</p>
-        <a href="#"><p>Page de l'Hôtel</p></a>
-        <button type="button" class="btn btn-lg btn-outline-secondary btn-block"><a href="#">Réservez</a></button>
-      </div>
-    </div> 
 </section>
 {% endfor %}
 {% endblock %}

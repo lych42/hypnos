@@ -5,12 +5,11 @@
 {% block body %}
 
 {% if is_granted("ROLE_USER") %}
-    <h3>Bonjour {{ app.user.prenom }}! </h3>
-    <p>Consultez ici l'historique de vos reservations</p>
+    <h3 style="text-align: center">Bonjour {{ app.user.prenom }} ! </h3>
 
     {% if is_granted('ROLE_GERANT') %}
     <h4>Vous êtes gérant de l'établissement de {{app.user.ville }}</h4>
-    <p>Voici la liste des suites de luxe comprise dans votre établissment à {{app.user.ville }} </p>
+    <p>Voici la liste des suites de luxe comprise dans votre établissement à {{app.user.ville }} </p>
 
     
     {% include 'home/suites.html.twig' %}

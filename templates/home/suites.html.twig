@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
-      <img src="img/suite1.webp" class="card-img-top" alt="Suite 1">
+      <img src="{{ vich_uploader_asset(suite, 'imageFile') }}" class="card-img-top" alt="Suite 1">
       <div class="card-body">
         <h5 class="card-title">{{ suite.nom }}</h5>
         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut eros sed magna gravida volutpat.</p>
