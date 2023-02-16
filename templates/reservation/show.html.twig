@@ -1,30 +1,31 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Reservation{% endblock %}
 
 {% block body %}
     <h1>Reservation</h1>
 
-    <table class="table">
+    <table class="container">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>bzsbzs</th>
                 <td>{{ reservation.id }}</td>
             </tr>
             <tr>
                 <th>DateDeDebut</th>
-                <td>{{ reservation.dateDeDebut ? reservation.dateDeDebut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.dateDeDebut ? reservation.dateDeDebut|date('d-m-Y H:i:s') : '' }}</td>
             </tr>
             <tr>
                 <th>DateDeFin</th>
-                <td>{{ reservation.dateDeFin ? reservation.dateDeFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.dateDeFin ? reservation.dateDeFin|date('d-m-Y H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_reservation_index') }}">back to list</a>
+    <a href="{{ path('reservation_index') }}">back to list</a>
 
-    <a href="{{ path('app_reservation_edit', {'id': reservation.id}) }}">edit</a>
+    <a href="{{ path('reservation_edit', {'id': reservation.id}) }}">edit</a>
 
     {{ include('reservation/_delete_form.html.twig') }}
 {% endblock %}

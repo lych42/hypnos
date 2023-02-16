@@ -26,6 +26,9 @@ class Reservation
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateDeFin = null;
 
+    #[ORM\ManyToOne]
+    private ?User $User = null;
+
     public function getId(): ?int
     {
         return $this->id;

@@ -17,7 +17,12 @@
       <img src="{{ vich_uploader_asset(suite, 'imageFile') }}" class="card-img-top" alt="Suite">
         <p>{{ suite.description }}</p>
         <p>{{ suite.prix }}</p>
-        <p>{{ suite.disponi }}</p>
+
+{% if suite.disponi == 1 %}
+        <p>Disponible maintenant !</p>
+{% else %}
+        <p>Non disponible</p>
+{% endif %}
         <button type="button" class="btn btn-lg btn-block btn-primary">Réservez</button>
       </div>
     </div>
