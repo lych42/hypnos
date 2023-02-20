@@ -1,4 +1,3 @@
-# .platform/services.yaml
-mysqldb:
-    type: mysql:10.2 # MariaDB 10.2
+hypnos-database-1:
+    type: mysql:10.2
     disk: 2048
