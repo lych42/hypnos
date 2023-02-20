@@ -13,6 +13,7 @@ Composer
 Symfony CLI
 Docker
 Docker-compose
+Github
 
 Vous pouvez vérifier les pré-requis (sauf Docker et Docker-compose) avec la commande suivante (de la CLI Symfony) :
 
