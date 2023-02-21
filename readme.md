@@ -4,16 +4,18 @@ Hypnos est un groupe hôtelier fondé en 2004. Propriétaire de 7 établissement
 coins de l’hexagone, chacun de ces hôtels s’avère être une destination idéale pour les couples
 en quête d’un séjour romantique à deux.
 
-# Environnement de développement
+## Environnement de développement
+-> Pour l'installation en local
 
-# Pré-requis
+### Pré-requis
 
-PHP 8.1
-Composer
-Symfony CLI
-Docker
-Docker-compose
-Github
+* PHP 8.1
+* Composer
+* Symfony CLI
+* Docker
+* Docker-compose
+* Github
+* nodejs et npm
 
 Vous pouvez vérifier les pré-requis (sauf Docker et Docker-compose) avec la commande suivante (de la CLI Symfony) :
 
